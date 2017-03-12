@@ -37,7 +37,28 @@ public class MainActivity extends AppCompatActivity{
         DemoService service = retrofit.create(DemoService.class);
 
         //Step 3: Create call with method of service interface
-        Call<ResponseInfo> call  = service.testHttpGet();
+        //Call<ResponseInfo> call  = service.testHttpGet();
+
+        //use replacement blocks
+        //Call<ResponseInfo> call  = service.testHttpGet("result.txt");
+
+        //use @Query
+        //Call<ResponseInfo> call = service.testHttpGet("value");
+
+
+        //use @QueryMap
+//        Map<String, String> params = new HashMap<>();
+//        params.put("param1", "value1");
+//        params.put("param1", "value2");
+//        Call<ResponseInfo> call = service.testHttpGet(params);
+
+
+        //use @POST
+        //Retrofit will packages the User into Json format
+        //Call<ResponseInfo> call = service.uploadNewUser(new User("percy", "male", 21));
+
+        //use @FormUrlEncoded
+        Call<ResponseInfo> call = service.uploadNewUser("percy", "male", 21);
 
         //step 4: Make the call
         call.enqueue(new Callback<ResponseInfo>() {
