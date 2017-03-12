@@ -16,6 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity{
     //local host
     private static final String URL = "http://192.168.1.105:8080/";
+
     private static final String TAG = "RetrofitTest";
 
     @Override
